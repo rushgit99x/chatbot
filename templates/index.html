@@ -1,0 +1,287 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Bank</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f7fa;
+        }
+        .chat-container {
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+        }
+        .chat-header {
+            background-color: #4a6fa5;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+        .user-message {
+            background-color: #e7f3ff;
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin-bottom: 10px;
+            max-width: 70%;
+            align-self: flex-end;
+            margin-left: auto;
+            word-wrap: break-word;
+        }
+        .bot-message {
+            background-color: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin-bottom: 10px;
+            max-width: 70%;
+            align-self: flex-start;
+            word-wrap: break-word;
+            position: relative;
+        }
+        .feedback-buttons {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+        .feedback-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+        .feedback-button:hover {
+            transform: scale(1.2);
+        }
+        .input-area {
+            display: flex;
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #ddd;
+        }
+        #user-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        #send-button {
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        #send-button:hover {
+            background-color: #3a5a8f;
+        }
+        .chat-status {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            padding: 5px;
+            margin-top: -5px;
+        }
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        .confidence-indicator {
+            height: 4px;
+            background-color: #ddd;
+            border-radius: 2px;
+            margin-top: 2px;
+            overflow: hidden;
+        }
+        .confidence-bar {
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            ABC Bank's Chatbot
+        </div>
+        <div id="chat-box" class="chat-box"></div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your message here..." autofocus>
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+        <div class="chat-status">Model is learning from your feedback!</div>
+    </div>
+
+    <script>
+        // Keep track of message IDs for feedback
+        let messageCounter = 0;
+        
+        document.getElementById("user-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            let userInput = document.getElementById("user-input").value;
+            if (userInput.trim() === "") return;
+
+            let chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML += `
+                <div class="message-container">
+                    <div class="user-message"><strong>You:</strong> ${userInput}</div>
+                </div>
+            `;
+            
+            document.getElementById("user-input").value = "";
+            document.getElementById("user-input").focus();
+            chatBox.scrollTop = chatBox.scrollHeight;
+            
+            // Show "typing" indicator
+            let typingDiv = document.createElement("div");
+            typingDiv.className = "message-container typing-indicator";
+            typingDiv.innerHTML = '<div class="bot-message"><em>Bot is typing...</em></div>';
+            chatBox.appendChild(typingDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            fetch("/chat", {
+                method: "POST",
+                body: JSON.stringify({ message: userInput }),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove typing indicator
+                chatBox.removeChild(typingDiv);
+                
+                // Generate unique ID for this message
+                let messageId = `msg-${messageCounter++}`;
+                
+                // Calculate confidence width
+                let confidenceWidth = Math.min(100, Math.round(parseFloat(data.confidence) * 100));
+                
+                // Add bot message with feedback buttons
+                chatBox.innerHTML += `
+                    <div class="message-container">
+                        <div class="bot-message" id="${messageId}">
+                            <strong>Bot:</strong> ${data.response}
+                            <div class="confidence-indicator">
+                                <div class="confidence-bar" style="width: ${confidenceWidth}%;"></div>
+                            </div>
+                            <div class="feedback-buttons">
+                                <button class="feedback-button" onclick="provideFeedback('${messageId}', 1)">👍</button>
+                                <button class="feedback-button" onclick="provideFeedback('${messageId}', 0)">😐</button>
+                                <button class="feedback-button" onclick="provideFeedback('${messageId}', -1)">👎</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            })
+            .catch(error => {
+                // Remove typing indicator
+                chatBox.removeChild(typingDiv);
+                chatBox.innerHTML += `
+                    <div class="message-container">
+                        <div class="bot-message">
+                            <strong>Bot:</strong> Sorry, I encountered an error. Please try again.
+                        </div>
+                    </div>
+                `;
+                chatBox.scrollTop = chatBox.scrollHeight;
+                console.error("Error:", error);
+            });
+        }
+
+        function provideFeedback(messageId, score) {
+            // Get message element
+            let messageElement = document.getElementById(messageId);
+            if (!messageElement) return;
+            
+            // Find and remove feedback buttons
+            let feedbackButtons = messageElement.querySelector(".feedback-buttons");
+            if (feedbackButtons) {
+                // Replace with feedback acknowledgment
+                let feedbackText = score > 0 ? "👍 Thanks for the positive feedback!" : 
+                                  score < 0 ? "👎 Thanks for the feedback. I'll learn from this." :
+                                  "😐 Thanks for the feedback.";
+                
+                feedbackButtons.innerHTML = `<em>${feedbackText}</em>`;
+                feedbackButtons.style.opacity = "0.5";
+            }
+            
+            // Send feedback to server
+            fetch("/feedback", {
+                method: "POST",
+                body: JSON.stringify({ 
+                    score: score,
+                    messageId: messageId
+                }),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Feedback submitted:", data);
+            });
+        }
+
+        // Add initial greeting
+        window.onload = function() {
+            setTimeout(() => {
+                let chatBox = document.getElementById("chat-box");
+                
+                // Generate unique ID for this message
+                let messageId = `msg-${messageCounter++}`;
+                
+                chatBox.innerHTML += `
+                    <div class="message-container">
+                        <div class="bot-message" id="${messageId}">
+                            <strong>Bot:</strong> Hello! I'm an AI assistant with reinforcement learning capabilities. 
+                            How can I help you today? Feel free to give me feedback so I can learn and improve!
+                            <div class="feedback-buttons">
+                                <button class="feedback-button" onclick="provideFeedback('${messageId}', 1)">👍</button>
+                                <button class="feedback-button" onclick="provideFeedback('${messageId}', 0)">😐</button>
+                                <button class="feedback-button" onclick="provideFeedback('${messageId}', -1)">👎</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }, 500);
+        };
+    </script>
+</body>
+</html>

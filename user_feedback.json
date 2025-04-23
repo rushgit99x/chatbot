@@ -1,0 +1,53 @@
+{
+    "feedback": [
+        {
+            "user_id": "6a484926-6927-4fd9-b268-5bd59f376126",
+            "timestamp": "2025-04-23T20:30:23.662320",
+            "user_message": "hi",
+            "bot_response": "Hello! Welcome to our online banking service. How can I help you today?",
+            "tag": "greeting",
+            "feedback_score": 1
+        },
+        {
+            "user_id": "6a484926-6927-4fd9-b268-5bd59f376126",
+            "timestamp": "2025-04-23T20:30:38.035222",
+            "user_message": "account ",
+            "bot_response": "We offer a simple process to open a new ${account_types} account online. You'll need valid ID, proof of address, and funds for your initial deposit. Would you like to know more about our account types or the application process?",
+            "tag": "open_account",
+            "feedback_score": 1
+        },
+        {
+            "user_id": "6a484926-6927-4fd9-b268-5bd59f376126",
+            "timestamp": "2025-04-23T20:30:45.761742",
+            "user_message": "cheers",
+            "bot_response": "I'm glad I could help. Is there anything else you need assistance with?",
+            "tag": "thanks",
+            "feedback_score": 1
+        },
+        {
+            "user_id": "17b43095-6226-46ae-af1f-0fe40292820a",
+            "timestamp": "2025-04-23T21:34:55.989970",
+            "user_message": "i need atm",
+            "bot_response": "Finding the nearest branch or ATM is easy with our online locator tool. Most locations offer drive-through services and 24/7 ATM access. Would you like help using our location finder?",
+            "tag": "branch_locations",
+            "feedback_score": 1
+        },
+        {
+            "user_id": "17b43095-6226-46ae-af1f-0fe40292820a",
+            "timestamp": "2025-04-23T21:35:02.167785",
+            "user_message": "thank you",
+            "bot_response": "Happy to be of service. Do you have any other banking questions?",
+            "tag": "thanks",
+            "feedback_score": 1
+        },
+        {
+            "user_id": "2a91ee7c-6737-4043-ac91-ac14e247e8ab",
+            "timestamp": "2025-04-23T21:56:07.434797",
+            "user_message": "hi",
+            "bot_response": "Hi there! I'm your banking assistant. What can I do for you?",
+            "tag": "greeting",
+            "feedback_score": 1
+        }
+    ],
+    "last_processed_date": null
+}

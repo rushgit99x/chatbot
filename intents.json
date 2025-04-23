@@ -1,0 +1,467 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hey",
+                "Hello",
+                "Good morning",
+                "Good afternoon",
+                "Good evening",
+                "Hi there",
+                "Hello there",
+                "How are you",
+                "Is anyone there",
+                "Hello, I need help with my account"
+            ],
+            "responses": [
+                "Hello! Welcome to our online banking service. How can I help you today?",
+                "Hi there! I'm your banking assistant. What can I do for you?",
+                "Good day! How may I assist you with your banking needs?",
+                "Hello! I'm here to help with your banking queries. What do you need?"
+            ],
+            "response_weights": [
+                1.02,
+                1.01,
+                1.02,
+                1.0
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Thanks, that's all",
+                "That's all for now",
+                "Have a nice day",
+                "Talk to you later"
+            ],
+            "responses": [
+                "Thank you for using our banking service. Have a great day!",
+                "Goodbye! If you have more questions, feel free to chat with us again.",
+                "Thank you for banking with us. Have a wonderful day ahead!",
+                "Your satisfaction is our priority. Goodbye and thank you for your trust!"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.01
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That's helpful",
+                "Appreciate it",
+                "Thanks for the help",
+                "Thank you so much",
+                "Cheers"
+            ],
+            "responses": [
+                "You're welcome! Is there anything else I can help you with?",
+                "I'm glad I could help. Is there anything else you need assistance with?",
+                "Happy to be of service. Do you have any other banking questions?",
+                "You're welcome! Your satisfaction is our priority. Anything else I can assist with?"
+            ],
+            "response_weights": [
+                1.0,
+                1.01,
+                1.02,
+                1.0
+            ]
+        },
+        {
+            "tag": "account_balance",
+            "patterns": [
+                "What's my balance",
+                "How much money do I have",
+                "Check my account balance",
+                "Balance inquiry",
+                "How much is in my account",
+                "Show me my balance",
+                "What's the balance in my checking account",
+                "What's my savings account balance"
+            ],
+            "responses": [
+                "I'd be happy to help you check your ${account_types} balance. For security purposes, please log in to our secure banking portal or mobile app to view your current balance.",
+                "To check your ${account_types} balance, please log in to our secure online banking or use our mobile app. For your security, I cannot display account balances in this chat.",
+                "Your account security is important to us. Please use our secure online banking portal or mobile app to check your ${account_types} balance.",
+                "For security reasons, I cannot display your ${account_types} balance here. Please check through our secure online banking or mobile app."
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "transfer_money",
+            "patterns": [
+                "I want to transfer money",
+                "How do I transfer funds",
+                "Send money to another account",
+                "Transfer from savings to checking",
+                "Move money between accounts",
+                "Can I transfer money to someone else",
+                "How to make a transfer"
+            ],
+            "responses": [
+                "You can transfer money through our secure online banking portal or mobile app. Would you like me to guide you through the process?",
+                "To transfer funds, log in to our online banking or mobile app, select 'Transfer', choose source and destination accounts, enter the amount, and confirm. Would you like more detailed instructions?",
+                "Transferring money is easy! After logging in to your account, go to 'Transfers', select your accounts, enter the amount, and confirm. Need more help with this?",
+                "For ${actions}, please log in to your account and navigate to the 'Transfer' section. You can transfer between your accounts or to other recipients. Would you like more specific instructions?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "transaction_history",
+            "patterns": [
+                "Show my recent transactions",
+                "Transaction history",
+                "Recent activity",
+                "Show me what I spent",
+                "Past transactions",
+                "Account activity",
+                "Can I see my last 5 transactions",
+                "Where can I find my transaction history"
+            ],
+            "responses": [
+                "You can view your transaction history by logging into our secure online banking portal or mobile app and navigating to your account details. Would you like me to explain how to find this?",
+                "To check your recent transactions, please log in to your account, select the account you wish to view, and you'll find the transaction history listed there. Need more guidance on this?",
+                "Your transaction history is available in our online banking portal or mobile app. After logging in, select your account and scroll down to see all recent activity. Is there something specific you're looking for?",
+                "For security, your transaction history can only be viewed through our secure online banking or mobile app. Would you like instructions on how to navigate to this section?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "open_account",
+            "patterns": [
+                "Account",
+                "How do I open an account",
+                "I want to open a new account",
+                "Open a savings account",
+                "Create new checking account",
+                "Account opening procedure",
+                "What do I need to open an account",
+                "I'd like to open a new account",
+                "Can I open an account online"
+            ],
+            "responses": [
+                "You can open a new ${account_types} account online through our website, via our mobile app, or by visiting any branch. Would you like me to guide you through the online process?",
+                "Opening a new ${account_types} account is easy! You can do it online in just a few minutes. You'll need your ID, Social Security number, and an initial deposit. Would you like me to walk you through the steps?",
+                "To open a new account, visit our website and click on 'Open an Account', or use our mobile app. You'll need identification documents and an initial deposit. Would you like more specific instructions?",
+                "We offer a simple process to open a new ${account_types} account online. You'll need valid ID, proof of address, and funds for your initial deposit. Would you like to know more about our account types or the application process?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.01
+            ]
+        },
+        {
+            "tag": "reset_password",
+            "patterns": [
+                "I forgot my password",
+                "Reset my password",
+                "Can't login",
+                "How to change password",
+                "Password reset",
+                "Login problems",
+                "I need a new password",
+                "Help me reset my password"
+            ],
+            "responses": [
+                "To reset your password, please visit our login page and click on 'Forgot Password'. You'll receive instructions via your registered email or phone number.",
+                "I can help you reset your ${security_terms}. Please go to our login page, click on 'Forgot Password', and follow the verification steps. For security, you'll need access to your registered email or phone.",
+                "If you've forgotten your password, visit our website's login page and select 'Forgot Password'. You'll need to verify your identity through your registered contact methods.",
+                "Password resets must be done through our secure system. Visit our login page, click 'Forgot Password', and follow the verification process. Would you like me to provide the direct link?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "card_issues",
+            "patterns": [
+                "My card is not working",
+                "Lost credit card",
+                "Replace my debit card",
+                "Stolen card",
+                "Block my card",
+                "Card declined",
+                "Activate new card",
+                "My card was declined",
+                "I need a new card"
+            ],
+            "responses": [
+                "I'm sorry to hear you're having issues with your card. For lost or stolen cards, please call our 24/7 helpline immediately at [BANK_PHONE] to block your card. For other card issues, could you provide more details so I can better assist you?",
+                "Card security is our priority. If your card is lost or stolen, please call [BANK_PHONE] immediately. For other issues like card activation or declines, please provide more details and I can guide you.",
+                "For immediate assistance with card issues, especially lost or stolen cards, please contact our 24/7 security line at [BANK_PHONE]. Would you like information about card replacement procedures?",
+                "I understand card problems can be stressful. For security reasons, please call us at [BANK_PHONE] for lost/stolen cards. For other card issues, I can provide troubleshooting steps if you share more details."
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "loan_information",
+            "patterns": [
+                "Tell me about loans",
+                "Loan options",
+                "How to apply for a loan",
+                "Interest rates on loans",
+                "Mortgage information",
+                "Personal loan details",
+                "Do you offer auto loans",
+                "What loans do you have"
+            ],
+            "responses": [
+                "We offer various types of loans including personal loans, auto loans, mortgages, and business loans. Each has different rates and terms. Which specific loan are you interested in?",
+                "Our loan options include mortgages starting at [RATE]%, auto loans from [RATE]%, personal loans, and business financing solutions. Would you like details about a specific type of loan?",
+                "We provide competitive rates on various loan products. Current offers include personal loans, auto financing, home mortgages, and business loans. Which would you like to learn more about?",
+                "Our bank offers flexible loan solutions to meet your needs. This includes ${account_types} with competitive rates and convenient repayment terms. Would you like to know about our current rates or application process?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "loan_status",
+            "patterns": [
+                "What's my loan status",
+                "Check my loan application",
+                "Has my loan been approved",
+                "Loan application progress",
+                "Update on my loan request",
+                "When will my loan be processed"
+            ],
+            "responses": [
+                "To check your loan status, please log in to our online banking portal and navigate to the 'Loans' section. For security reasons, I cannot access your specific loan details here.",
+                "Loan application statuses can be viewed in your online account under 'Loans' or 'Applications'. For security purposes, please check there or call our loan department at [LOAN_PHONE].",
+                "For security reasons, I cannot access your specific loan details in this chat. Please check your application status by logging into your online account or contacting our loan department directly.",
+                "Your loan privacy is important to us. Please check your application status by logging into your online banking portal or calling our dedicated loan team at [LOAN_PHONE]."
+            ],
+            "response_weights": [
+                1.01,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "bill_pay",
+            "patterns": [
+                "How do I pay bills",
+                "Set up bill payment",
+                "Pay my utility bill",
+                "Automatic bill payments",
+                "Bill pay service",
+                "Pay my bills online",
+                "Can I schedule bill payments",
+                "How to use bill pay"
+            ],
+            "responses": [
+                "Our online bill pay service lets you pay virtually any person or company. Log in to online banking, go to 'Bill Pay', add a payee, and schedule your payment. Would you like more details?",
+                "To use our bill payment service, log in to your account, select 'Bill Pay', add your payees with their information, and schedule one-time or recurring payments. Would you like step-by-step guidance?",
+                "Bill pay is a free service for our customers. After logging in, navigate to 'Bill Pay', set up your payees, and schedule your payments. You can set up automatic recurring payments too. Need more help with this?",
+                "Our ${actions} feature lets you send money to companies or individuals. You can schedule one-time or recurring payments. Would you like me to explain how to set this up in your online banking?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "mobile_banking",
+            "patterns": [
+                "How do I use mobile banking",
+                "Download banking app",
+                "Mobile app features",
+                "Is mobile banking secure",
+                "Banking on my phone",
+                "Mobile deposit",
+                "How do I deposit checks with my phone",
+                "Mobile banking security"
+            ],
+            "responses": [
+                "Our mobile banking app offers account management, transfers, bill pay, mobile check deposits, and more. You can download it from the App Store or Google Play. Would you like instructions on getting started?",
+                "Mobile banking lets you manage your accounts anywhere, anytime. Features include transfers, bill payments, check deposits, and account monitoring. The app is secured with encryption and biometric login options. Would you like download instructions?",
+                "Our mobile app provides secure, convenient banking on the go. You can view balances, transfer funds, deposit checks, pay bills, and manage cards. Would you like to know more about a specific feature?",
+                "Banking from your smartphone is easy with our secure mobile app. Features include ${actions}, mobile check deposit, account alerts, and more. Would you like help downloading or setting it up?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "branch_locations",
+            "patterns": [
+                "Where is the nearest branch",
+                "ATM locations",
+                "Branch hours",
+                "Find a branch near me",
+                "When does the bank open",
+                "Bank locations",
+                "Is there a branch near me",
+                "What time does the bank close"
+            ],
+            "responses": [
+                "To find our nearest branch or ATM, please visit our website's 'Locations' page or use our mobile app's location finder. Would you like me to explain how to access this feature?",
+                "You can locate our branches and ATMs through our website or mobile app. Most branches are open Monday-Friday 9AM-5PM and Saturday 9AM-12PM, though hours may vary by location. Would you like to search for a specific area?",
+                "Our branches are typically open weekdays from 9AM to 5PM, with some locations offering Saturday hours. For the most accurate information about a specific branch, please use our location finder on our website or mobile app.",
+                "Finding the nearest branch or ATM is easy with our online locator tool. Most locations offer drive-through services and 24/7 ATM access. Would you like help using our location finder?"
+            ],
+            "response_weights": [
+                1.01,
+                1.0,
+                1.0,
+                1.01
+            ]
+        },
+        {
+            "tag": "contact_support",
+            "patterns": [
+                "How do I contact customer service",
+                "Customer support number",
+                "Talk to a representative",
+                "Contact information",
+                "Speak to someone",
+                "Customer service hours",
+                "How do I talk to a human"
+            ],
+            "responses": [
+                "You can reach our customer service at [BANK_PHONE], available 24/7. For general banking questions, our representatives are available Monday-Friday 8AM-8PM and Saturday 9AM-5PM. Would you prefer a different contact method?",
+                "Our customer support is available at [BANK_PHONE]. For online banking issues, you can call our dedicated team at [TECH_SUPPORT]. Would you like information about other ways to contact us?",
+                "You can contact us through several channels: phone at [BANK_PHONE], secure messaging through online banking, or by visiting any branch. Our phone support hours are Monday-Friday 8AM-8PM and Saturday 9AM-5PM.",
+                "We're here to help! Call us at [BANK_PHONE], use secure messaging in online banking, or visit a local branch. For urgent card issues, our 24/7 card services number is [CARD_PHONE]. How would you prefer to connect with us?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "fraud_report",
+            "patterns": [
+                "Report fraud",
+                "Suspicious activity",
+                "Someone used my card",
+                "Unauthorized transaction",
+                "Identity theft",
+                "Report stolen identity",
+                "Suspicious charges on my account",
+                "I don't recognize this transaction"
+            ],
+            "responses": [
+                "I'm sorry to hear that. For suspected fraud or unauthorized transactions, please call our fraud department immediately at [FRAUD_PHONE], available 24/7. Would you like me to explain what information you should have ready?",
+                "Your security is our priority. Please contact our fraud department immediately at [FRAUD_PHONE]. They are available 24/7 and will help secure your account and investigate the suspicious activity.",
+                "For fraud concerns, please call [FRAUD_PHONE] immediately. Our specialists are available 24/7 to help secure your account, issue new cards if needed, and investigate unauthorized transactions.",
+                "If you suspect fraud, please call our dedicated security team at [FRAUD_PHONE] right away. For your protection, they will secure your account, review recent activity with you, and take appropriate actions. Would you like to know what information to have ready for this call?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "interest_rates",
+            "patterns": [
+                "What are your interest rates",
+                "CD rates",
+                "Savings account interest",
+                "Current mortgage rates",
+                "Interest on checking accounts",
+                "Best interest rates",
+                "Do you offer competitive rates"
+            ],
+            "responses": [
+                "Our current interest rates vary by product. Savings accounts currently offer up to [RATE]% APY, CDs range from [RATE]% to [RATE]% depending on term length, and mortgage rates start at [RATE]%. Would you like details on a specific product?",
+                "We offer competitive rates across our product line. Currently, our high-yield savings account features [RATE]% APY, while CDs range from [RATE]% to [RATE]% based on term. Would you like to know about rates for a specific account type?",
+                "Our interest rates are updated regularly to remain competitive. Current rates include savings at up to [RATE]% APY, CDs from [RATE]% to [RATE]%, and mortgage rates from [RATE]%. Which specific rates interest you?",
+                "We offer competitive interest rates that vary by product and may change based on market conditions. For the most current rates on specific products, please visit our website's 'Rates' page or speak with a banker. Would you like me to explain more about a particular account type?"
+            ],
+            "response_weights": [
+                1.01,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "foreign_currency",
+            "patterns": [
+                "Exchange foreign currency",
+                "Currency exchange rates",
+                "Buy foreign currency",
+                "Travel money",
+                "Convert currency",
+                "Do you exchange euros",
+                "Foreign exchange services"
+            ],
+            "responses": [
+                "We offer foreign currency exchange services at most branch locations. For major currencies, no advance notice is needed. For others, please contact your local branch 3-5 days ahead. Would you like information about our exchange rates?",
+                "You can exchange foreign currency at our branches. We offer competitive rates for major world currencies. For large amounts or uncommon currencies, we recommend calling ahead to ensure availability. Would you like to know which currencies we typically have available?",
+                "Our foreign currency services include buying and selling major world currencies. Exchange rates are updated daily. For the best rates on larger amounts, we recommend ordering in advance through your local branch or online banking.",
+                "We provide foreign currency exchange at competitive rates. Services are available at most branches, though we recommend calling ahead to check availability for your specific currency needs. Would you like to know about foreign transaction fees on our cards for international travel?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "fallback",
+            "patterns": [],
+            "responses": [
+                "I'm not sure I understand. Could you rephrase your question or concern?",
+                "I'm sorry, I didn't quite catch that. Could you please provide more details about your banking query?",
+                "I'm still learning and didn't understand your request. Could you try asking in a different way or provide more information?",
+                "I'm afraid I don't have enough information to help with that. Could you provide more details about your banking question?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ]
+}
