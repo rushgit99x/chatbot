@@ -252,6 +252,3 @@ if __name__ == "__main__":
         print("Please run model_training.py first to create these files.")
     
     app.run(debug=True)
-
-    # Note: In production, set debug=False and use a proper WSGI server like Gunicorn or uWSGI
-    #aaaaa

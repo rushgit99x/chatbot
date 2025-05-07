@@ -13,18 +13,23 @@
                 "Hello there",
                 "How are you",
                 "Is anyone there",
-                "Hello, I need help with my account"
+                "Hello, I need help with my account",
+                "Howdy",
+                "Hey, can you help me",
+                "Greetings",
+                "Yo, what's up",
+                "Hello, I have a question"
             ],
             "responses": [
-                "Hello! Welcome to our online banking service. How can I help you today?",
-                "Hi there! I'm your banking assistant. What can I do for you?",
-                "Good day! How may I assist you with your banking needs?",
-                "Hello! I'm here to help with your banking queries. What do you need?"
+                "Hello! Welcome to VeloTrust online banking. How can I assist you today?",
+                "Hi there! I'm your virtual banking assistant. What's on your mind?",
+                "Good day! Ready to help with your banking needs. What can I do for you?",
+                "Hey! I'm here to answer your banking questions. What's up?"
             ],
             "response_weights": [
-                1.02,
                 1.01,
-                1.02,
+                1.0,
+                1.0,
                 1.0
             ]
         },
@@ -37,13 +42,20 @@
                 "Thanks, that's all",
                 "That's all for now",
                 "Have a nice day",
-                "Talk to you later"
+                "Talk to you later",
+                "See you soon",
+                "Take care",
+                "Cheers",
+                "I'm done",
+                "Catch you later",
+                "Thanks, bye",
+                "Cheers"
             ],
             "responses": [
-                "Thank you for using our banking service. Have a great day!",
-                "Goodbye! If you have more questions, feel free to chat with us again.",
-                "Thank you for banking with us. Have a wonderful day ahead!",
-                "Your satisfaction is our priority. Goodbye and thank you for your trust!"
+                "Thanks for chatting with VeloTrust. Have a great day!",
+                "Goodbye! Feel free to return if you have more questions.",
+                "Thank you for banking with us. Have a wonderful day!",
+                "Take care! We're here whenever you need us."
             ],
             "response_weights": [
                 1.0,
@@ -61,18 +73,21 @@
                 "Appreciate it",
                 "Thanks for the help",
                 "Thank you so much",
-                "Cheers"
+                "Cheers",
+                "Thanks a lot",
+                "Very helpful",
+                "Grateful for that"
             ],
             "responses": [
-                "You're welcome! Is there anything else I can help you with?",
-                "I'm glad I could help. Is there anything else you need assistance with?",
-                "Happy to be of service. Do you have any other banking questions?",
-                "You're welcome! Your satisfaction is our priority. Anything else I can assist with?"
+                "You're welcome! Anything else I can help with?",
+                "Glad I could assist. Need help with anything else?",
+                "Happy to help! What's next on your list?",
+                "My pleasure! Let me know if you have more questions."
             ],
             "response_weights": [
                 1.0,
-                1.01,
-                1.02,
+                1.0,
+                1.0,
                 1.0
             ]
         },
@@ -86,13 +101,32 @@
                 "How much is in my account",
                 "Show me my balance",
                 "What's the balance in my checking account",
-                "What's my savings account balance"
+                "What's my savings account balance",
+                "What is my current balance",
+                "How do I check my balance",
+                "Can I see my account balance",
+                "How do I find my balance",
+                "What is my balance",
+                "How much is in my savings account",
+                "How much is in my checking account",
+                "What is my account balance",
+                "How do I check my account balance",
+                "Can you tell me my balance",
+                "What is the balance of my account",
+                "How do I find out my balance",
+                "What is the balance in my account",
+                "How do I check my savings account balance",
+                "How do I check my checking account balance",
+                "Balance for my account",
+                "How much money is left in my account",
+                "Show balance for checking",
+                "Savings balance check"
             ],
             "responses": [
-                "I'd be happy to help you check your ${account_types} balance. For security purposes, please log in to our secure banking portal or mobile app to view your current balance.",
-                "To check your ${account_types} balance, please log in to our secure online banking or use our mobile app. For your security, I cannot display account balances in this chat.",
-                "Your account security is important to us. Please use our secure online banking portal or mobile app to check your ${account_types} balance.",
-                "For security reasons, I cannot display your ${account_types} balance here. Please check through our secure online banking or mobile app."
+                "To view your checking or savings balance, please log in to the VeloTrust mobile app or online banking portal for secure access.",
+                "For security, I can't display your checking or savings balance here. Check it securely via our mobile app or online banking.",
+                "Please log in to VeloTrust online banking or the mobile app to see your checking or savings balance securely.",
+                "Your checking or savings balance is available through our secure online banking or mobile app. Need help logging in?"
             ],
             "response_weights": [
                 1.0,
@@ -110,13 +144,19 @@
                 "Transfer from savings to checking",
                 "Move money between accounts",
                 "Can I transfer money to someone else",
-                "How to make a transfer"
+                "How to make a transfer",
+                "Transfer money to my other account",
+                "Send cash to someone",
+                "Move funds to checking",
+                "How do I send money",
+                "Transfer to external account",
+                "Pay someone from my account"
             ],
             "responses": [
-                "You can transfer money through our secure online banking portal or mobile app. Would you like me to guide you through the process?",
-                "To transfer funds, log in to our online banking or mobile app, select 'Transfer', choose source and destination accounts, enter the amount, and confirm. Would you like more detailed instructions?",
-                "Transferring money is easy! After logging in to your account, go to 'Transfers', select your accounts, enter the amount, and confirm. Need more help with this?",
-                "For ${actions}, please log in to your account and navigate to the 'Transfer' section. You can transfer between your accounts or to other recipients. Would you like more specific instructions?"
+                "You can transfer funds via VeloTrust online banking or mobile app. Go to 'Transfers,' select accounts, enter the amount, and confirm. Need step-by-step help?",
+                "To transfer money, log in to VeloTrust online banking, select 'Transfers,' choose your source and destination accounts, and submit. Want detailed instructions?",
+                "Transfers are easy with our mobile app or online banking. Navigate to 'Transfers,' pick your accounts, enter the amount, and confirm. Need help setting it up?",
+                "For transfers or payments, use VeloTrust online banking or the app. Select 'Transfers,' choose accounts, and follow the prompts. Want guidance for external transfers?"
             ],
             "response_weights": [
                 1.0,
@@ -135,13 +175,18 @@
                 "Past transactions",
                 "Account activity",
                 "Can I see my last 5 transactions",
-                "Where can I find my transaction history"
+                "Where can I find my transaction history",
+                "List my recent purchases",
+                "Show my account transactions",
+                "What are my latest transactions",
+                "View transaction details",
+                "Check my spending history"
             ],
             "responses": [
-                "You can view your transaction history by logging into our secure online banking portal or mobile app and navigating to your account details. Would you like me to explain how to find this?",
-                "To check your recent transactions, please log in to your account, select the account you wish to view, and you'll find the transaction history listed there. Need more guidance on this?",
-                "Your transaction history is available in our online banking portal or mobile app. After logging in, select your account and scroll down to see all recent activity. Is there something specific you're looking for?",
-                "For security, your transaction history can only be viewed through our secure online banking or mobile app. Would you like instructions on how to navigate to this section?"
+                "View your transaction history by logging into VeloTrust online banking or mobile app under 'Account Details.' Need help finding it?",
+                "Your recent transactions are available in the VeloTrust mobile app or online banking. Select your account to see the list. Want navigation guidance?",
+                "Log in to VeloTrust online banking or the app to check your transaction history under your account. Can I help with specific transaction details?",
+                "For security, transaction history is accessible via VeloTrust online banking or mobile app. Need instructions to locate it?"
             ],
             "response_weights": [
                 1.0,
@@ -153,7 +198,6 @@
         {
             "tag": "open_account",
             "patterns": [
-                "Account",
                 "How do I open an account",
                 "I want to open a new account",
                 "Open a savings account",
@@ -161,19 +205,23 @@
                 "Account opening procedure",
                 "What do I need to open an account",
                 "I'd like to open a new account",
-                "Can I open an account online"
+                "Can I open an account online",
+                "Start a new account",
+                "Open a bank account",
+                "How to get a new account",
+                "Requirements for new account"
             ],
             "responses": [
-                "You can open a new ${account_types} account online through our website, via our mobile app, or by visiting any branch. Would you like me to guide you through the online process?",
-                "Opening a new ${account_types} account is easy! You can do it online in just a few minutes. You'll need your ID, Social Security number, and an initial deposit. Would you like me to walk you through the steps?",
-                "To open a new account, visit our website and click on 'Open an Account', or use our mobile app. You'll need identification documents and an initial deposit. Would you like more specific instructions?",
-                "We offer a simple process to open a new ${account_types} account online. You'll need valid ID, proof of address, and funds for your initial deposit. Would you like to know more about our account types or the application process?"
+                "Open a checking or savings account online at VeloTrust or visit a branch. You will need ID, proof of address, and an initial deposit. Want online setup steps?",
+                "You can start a checking or savings account via VeloTrust's website or app. Provide ID, National Identity Card number, and a deposit. Need help with the process?",
+                "To open a checking or savings account, use VeloTrust online banking or visit a branch. Requirements include ID and an initial deposit. Interested in specific account types?",
+                "Opening a checking or savings account is simple online or'll need valid ID and a deposit. Want to explore our account options?"
             ],
             "response_weights": [
                 1.0,
                 1.0,
                 1.0,
-                1.01
+                1.0
             ]
         },
         {
@@ -186,13 +234,16 @@
                 "Password reset",
                 "Login problems",
                 "I need a new password",
-                "Help me reset my password"
+                "Help me reset my password",
+                "Trouble logging in",
+                "Locked out of my account",
+                "Change my login password"
             ],
             "responses": [
-                "To reset your password, please visit our login page and click on 'Forgot Password'. You'll receive instructions via your registered email or phone number.",
-                "I can help you reset your ${security_terms}. Please go to our login page, click on 'Forgot Password', and follow the verification steps. For security, you'll need access to your registered email or phone.",
-                "If you've forgotten your password, visit our website's login page and select 'Forgot Password'. You'll need to verify your identity through your registered contact methods.",
-                "Password resets must be done through our secure system. Visit our login page, click 'Forgot Password', and follow the verification process. Would you like me to provide the direct link?"
+                "To reset your password, visit VeloTrust's login page, click 'Forgot Password,' and follow the email/phone verification steps.",
+                "For a password reset, go to VeloTrust's login page and select 'Forgot Password.' You will need your registered email or phone. Need the direct link?",
+                "Reset your password on VeloTrust's login page under 'Forgot Password.' Verify via email or phone. Want help with the steps?",
+                "Visit VeloTrust's login page and click 'Forgot Password' to reset your password. Follow the secure verification process. Need assistance?"
             ],
             "response_weights": [
                 1.0,
@@ -202,23 +253,70 @@
             ]
         },
         {
-            "tag": "card_issues",
+            "tag": "lost_card",
             "patterns": [
-                "My card is not working",
                 "Lost credit card",
-                "Replace my debit card",
+                "Lost debit card",
                 "Stolen card",
                 "Block my card",
-                "Card declined",
-                "Activate new card",
-                "My card was declined",
-                "I need a new card"
+                "I lost my card",
+                "My card is gone",
+                "Report lost card",
+                "Card was stolen"
             ],
             "responses": [
-                "I'm sorry to hear you're having issues with your card. For lost or stolen cards, please call our 24/7 helpline immediately at [BANK_PHONE] to block your card. For other card issues, could you provide more details so I can better assist you?",
-                "Card security is our priority. If your card is lost or stolen, please call [BANK_PHONE] immediately. For other issues like card activation or declines, please provide more details and I can guide you.",
-                "For immediate assistance with card issues, especially lost or stolen cards, please contact our 24/7 security line at [BANK_PHONE]. Would you like information about card replacement procedures?",
-                "I understand card problems can be stressful. For security reasons, please call us at [BANK_PHONE] for lost/stolen cards. For other card issues, I can provide troubleshooting steps if you share more details."
+                "Please call VeloTrust's 24/7 card services at +94 11 235 3333 to report and block your lost/stolen card immediately. Want replacement details?",
+                "For a lost or stolen card, contact VeloTrust at +94 11 235 3333 right away to secure your account. Need help with next steps?",
+                "Urgent: Call VeloTrust at +94 11 235 3333 to block your lost/stolen card. Available 24/7. Want info on getting a new card?",
+                "Report your lost/stolen card by calling VeloTrust at +94 11 235 3333 now. We will secure your account and assist with a replacement."
+            ],
+            "response_weights": [
+                1.01,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "card_declined",
+            "patterns": [
+                "My card is not working",
+                "Card declined",
+                "My card was declined",
+                "Why is my card not working",
+                "Transaction declined",
+                "Card isn't accepted",
+                "Payment failed with card"
+            ],
+            "responses": [
+                "If your card was declined, check your balance or limits in VeloTrust's app. For further help, call +94 11 235 3333. Need troubleshooting steps?",
+                "A declined card may be due to low funds, limits, or security flags. Check your account or call VeloTrust at +94 11 235 3333 for assistance.",
+                "Sorry your card was declined. Verify your balance in the VeloTrust app or contact +94 11 235 3333 for help. Want to check for holds?",
+                "Card declines can happen due to various reasons. Log in to VeloTrust's app to review your account or call +94 11 235 3333 for support."
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "card_activation",
+            "patterns": [
+                "Activate new card",
+                "How to activate my card",
+                "New card activation",
+                "Activate my debit card",
+                "Activate my credit card",
+                "Start using my new card",
+                "Enable my card"
+            ],
+            "responses": [
+                "Activate your card via VeloTrust's mobile app, online banking, or by calling +94 11 235 3333. Need step-by-step instructions?",
+                "To activate your new card, log in to VeloTrust's app, select 'Manage Cards,' and follow the prompts. Or call +94 11 235 3333. Want help?",
+                "Use VeloTrust's online banking, mobile app, or call +94 11 235 3333 to activate your card. Need guidance on the process?",
+                "Your new card can be activated in VeloTrust's app or by calling +94 11 235 3333. Want detailed steps for activation?"
             ],
             "response_weights": [
                 1.0,
@@ -237,13 +335,16 @@
                 "Mortgage information",
                 "Personal loan details",
                 "Do you offer auto loans",
-                "What loans do you have"
+                "What loans do you have",
+                "Home loan rates",
+                "Car loan terms",
+                "Business loan info"
             ],
             "responses": [
-                "We offer various types of loans including personal loans, auto loans, mortgages, and business loans. Each has different rates and terms. Which specific loan are you interested in?",
-                "Our loan options include mortgages starting at [RATE]%, auto loans from [RATE]%, personal loans, and business financing solutions. Would you like details about a specific type of loan?",
-                "We provide competitive rates on various loan products. Current offers include personal loans, auto financing, home mortgages, and business loans. Which would you like to learn more about?",
-                "Our bank offers flexible loan solutions to meet your needs. This includes ${account_types} with competitive rates and convenient repayment terms. Would you like to know about our current rates or application process?"
+                "VeloTrust offers personal, auto, mortgage, and business loans with competitive rates. Interested in details for a specific loan type?",
+                "Explore our loans: personal from 2.5%, auto from 2.5%, mortgages starting at 2.5%, and business options. Which one do you want to learn about?",
+                "We provide loans like mortgages, auto, personal, and business. Rates vary; e.g., mortgages start at 2.5%. Need info on a particular loan?",
+                "Our loan options include checking or savings with rates like 2.5% for mortgages. Want to know about terms or applying?"
             ],
             "response_weights": [
                 1.0,
@@ -260,16 +361,18 @@
                 "Has my loan been approved",
                 "Loan application progress",
                 "Update on my loan request",
-                "When will my loan be processed"
+                "When will my loan be processed",
+                "Loan approval status",
+                "Where is my loan application"
             ],
             "responses": [
-                "To check your loan status, please log in to our online banking portal and navigate to the 'Loans' section. For security reasons, I cannot access your specific loan details here.",
-                "Loan application statuses can be viewed in your online account under 'Loans' or 'Applications'. For security purposes, please check there or call our loan department at [LOAN_PHONE].",
-                "For security reasons, I cannot access your specific loan details in this chat. Please check your application status by logging into your online account or contacting our loan department directly.",
-                "Your loan privacy is important to us. Please check your application status by logging into your online banking portal or calling our dedicated loan team at [LOAN_PHONE]."
+                "Check your loan status in VeloTrust's online banking under 'Loans.' For details, call +94 11 230 3050. Need help accessing it?",
+                "For loan application updates, log in to VeloTrust's portal or call +94 11 230 3050. Can't share details here for security.",
+                "View your loan status via VeloTrust's online banking or contact +94 11 230 3050 for assistance. Want login guidance?",
+                "Loan statuses are available in VeloTrust's secure portal under 'Loans' or by calling +94 11 230 3050. Need help checking?"
             ],
             "response_weights": [
-                1.01,
+                1.0,
                 1.0,
                 1.0,
                 1.0
@@ -285,13 +388,16 @@
                 "Bill pay service",
                 "Pay my bills online",
                 "Can I schedule bill payments",
-                "How to use bill pay"
+                "How to use bill pay",
+                "Pay my credit card bill",
+                "Set up recurring payments",
+                "Online bill payment"
             ],
             "responses": [
-                "Our online bill pay service lets you pay virtually any person or company. Log in to online banking, go to 'Bill Pay', add a payee, and schedule your payment. Would you like more details?",
-                "To use our bill payment service, log in to your account, select 'Bill Pay', add your payees with their information, and schedule one-time or recurring payments. Would you like step-by-step guidance?",
-                "Bill pay is a free service for our customers. After logging in, navigate to 'Bill Pay', set up your payees, and schedule your payments. You can set up automatic recurring payments too. Need more help with this?",
-                "Our ${actions} feature lets you send money to companies or individuals. You can schedule one-time or recurring payments. Would you like me to explain how to set this up in your online banking?"
+                "Pay bills via VeloTrust's online banking or app. Go to 'Bill Pay,' add payees, and schedule payments. Need setup help?",
+                "Use VeloTrust's bill pay service in the app or online banking to pay or schedule bills. Want step-by-step instructions?",
+                "Set up bill payments in VeloTrust's online banking under 'Bill Pay.' Add payees and choose one-time or recurring. Need guidance?",
+                "Our transfers or payments service lets you pay bills online. Log in to VeloTrust's app, select 'Bill Pay,' and follow the prompts. Want help?"
             ],
             "response_weights": [
                 1.0,
@@ -310,13 +416,16 @@
                 "Banking on my phone",
                 "Mobile deposit",
                 "How do I deposit checks with my phone",
-                "Mobile banking security"
+                "Mobile banking security",
+                "Get the banking app",
+                "Use app for banking",
+                "Mobile check deposit"
             ],
             "responses": [
-                "Our mobile banking app offers account management, transfers, bill pay, mobile check deposits, and more. You can download it from the App Store or Google Play. Would you like instructions on getting started?",
-                "Mobile banking lets you manage your accounts anywhere, anytime. Features include transfers, bill payments, check deposits, and account monitoring. The app is secured with encryption and biometric login options. Would you like download instructions?",
-                "Our mobile app provides secure, convenient banking on the go. You can view balances, transfer funds, deposit checks, pay bills, and manage cards. Would you like to know more about a specific feature?",
-                "Banking from your smartphone is easy with our secure mobile app. Features include ${actions}, mobile check deposit, account alerts, and more. Would you like help downloading or setting it up?"
+                "VeloTrust's mobile app offers transfers, bill pay, and check deposits. Download it from the App Store or Google Play. Need setup help?",
+                "Our secure mobile app includes transfers or payments, check deposits, and more. Get it from the App Store or Google Play. Want feature details?",
+                "Mobile banking with VeloTrust is secure with encryption. Features include transfers and deposits. Need download instructions?",
+                "Download VeloTrust's app for secure banking like transfers or payments and mobile deposits. Available on App Store and Google Play. Need help?"
             ],
             "response_weights": [
                 1.0,
@@ -335,19 +444,22 @@
                 "When does the bank open",
                 "Bank locations",
                 "Is there a branch near me",
-                "What time does the bank close"
+                "What time does the bank close",
+                "Closest ATM",
+                "Branch near my location",
+                "Bank opening hours"
             ],
             "responses": [
-                "To find our nearest branch or ATM, please visit our website's 'Locations' page or use our mobile app's location finder. Would you like me to explain how to access this feature?",
-                "You can locate our branches and ATMs through our website or mobile app. Most branches are open Monday-Friday 9AM-5PM and Saturday 9AM-12PM, though hours may vary by location. Would you like to search for a specific area?",
-                "Our branches are typically open weekdays from 9AM to 5PM, with some locations offering Saturday hours. For the most accurate information about a specific branch, please use our location finder on our website or mobile app.",
-                "Finding the nearest branch or ATM is easy with our online locator tool. Most locations offer drive-through services and 24/7 ATM access. Would you like help using our location finder?"
+                "Find branches and ATMs on VeloTrust's website or app under 'Locations.' Most branches open 9AM-3PM. Need help using the locator?",
+                "Use VeloTrust's location finder in the app or website to find branches/ATMs. Hours are typically 9AM-3PM weekdays. Want specific hours?",
+                "VeloTrust branches are usually open 9AM-3PM, with some Saturday hours. Check exact locations on our site or app. Need assistance?",
+                "Locate the nearest VeloTrust branch or ATM via our app's 'Locations' tool. Hours vary but often 9AM-3PM. Want help finding one?"
             ],
             "response_weights": [
-                1.01,
                 1.0,
                 1.0,
-                1.01
+                1.0,
+                1.0
             ]
         },
         {
@@ -359,13 +471,16 @@
                 "Contact information",
                 "Speak to someone",
                 "Customer service hours",
-                "How do I talk to a human"
+                "How do I talk to a human",
+                "Get in touch with support",
+                "Call customer service",
+                "Need to speak with someone"
             ],
             "responses": [
-                "You can reach our customer service at [BANK_PHONE], available 24/7. For general banking questions, our representatives are available Monday-Friday 8AM-8PM and Saturday 9AM-5PM. Would you prefer a different contact method?",
-                "Our customer support is available at [BANK_PHONE]. For online banking issues, you can call our dedicated team at [TECH_SUPPORT]. Would you like information about other ways to contact us?",
-                "You can contact us through several channels: phone at [BANK_PHONE], secure messaging through online banking, or by visiting any branch. Our phone support hours are Monday-Friday 8AM-8PM and Saturday 9AM-5PM.",
-                "We're here to help! Call us at [BANK_PHONE], use secure messaging in online banking, or visit a local branch. For urgent card issues, our 24/7 card services number is [CARD_PHONE]. How would you prefer to connect with us?"
+                "Reach VeloTrust support at +94 11 220 4444 (24/7) or use secure messaging in online banking. Need other contact options?",
+                "Call VeloTrust at +94 11 220 4444 for support, available 24/7. You can also message us via the app. Want branch contact info?",
+                "Contact VeloTrust at +94 11 220 4444 or through online banking's secure chat. Support is 24/7. Need specific department numbers?",
+                "For help, call VeloTrust at +94 11 220 4444 (24/7) or visit a branch. Secure messaging is also available. How can we assist?"
             ],
             "response_weights": [
                 1.0,
@@ -384,13 +499,16 @@
                 "Identity theft",
                 "Report stolen identity",
                 "Suspicious charges on my account",
-                "I don't recognize this transaction"
+                "I don't recognize this transaction",
+                "Fraud on my account",
+                "Unknown charge on card",
+                "Report scam"
             ],
             "responses": [
-                "I'm sorry to hear that. For suspected fraud or unauthorized transactions, please call our fraud department immediately at [FRAUD_PHONE], available 24/7. Would you like me to explain what information you should have ready?",
-                "Your security is our priority. Please contact our fraud department immediately at [FRAUD_PHONE]. They are available 24/7 and will help secure your account and investigate the suspicious activity.",
-                "For fraud concerns, please call [FRAUD_PHONE] immediately. Our specialists are available 24/7 to help secure your account, issue new cards if needed, and investigate unauthorized transactions.",
-                "If you suspect fraud, please call our dedicated security team at [FRAUD_PHONE] right away. For your protection, they will secure your account, review recent activity with you, and take appropriate actions. Would you like to know what information to have ready for this call?"
+                "Urgent: Call VeloTrust's fraud team at +94 11 246 2462 (24/7) to report suspicious activity. Need info to prepare for the call?",
+                "For fraud or unauthorized charges, contact VeloTrust at +94 11 246 2462 immediately. We'll secure your account. Want next steps?",
+                "Report suspected fraud by calling VeloTrust at +94 11 246 2462 (24/7). We'll investigate and protect your account. Need help?",
+                "Call VeloTrust's fraud line at +94 11 246 2462 now for unauthorized transactions. Available 24/7 to assist. Want to know what to provide?"
             ],
             "response_weights": [
                 1.0,
@@ -408,16 +526,19 @@
                 "Current mortgage rates",
                 "Interest on checking accounts",
                 "Best interest rates",
-                "Do you offer competitive rates"
+                "Do you offer competitive rates",
+                "Rate for savings account",
+                "CD interest rates",
+                "Mortgage loan rates"
             ],
             "responses": [
-                "Our current interest rates vary by product. Savings accounts currently offer up to [RATE]% APY, CDs range from [RATE]% to [RATE]% depending on term length, and mortgage rates start at [RATE]%. Would you like details on a specific product?",
-                "We offer competitive rates across our product line. Currently, our high-yield savings account features [RATE]% APY, while CDs range from [RATE]% to [RATE]% based on term. Would you like to know about rates for a specific account type?",
-                "Our interest rates are updated regularly to remain competitive. Current rates include savings at up to [RATE]% APY, CDs from [RATE]% to [RATE]%, and mortgage rates from [RATE]%. Which specific rates interest you?",
-                "We offer competitive interest rates that vary by product and may change based on market conditions. For the most current rates on specific products, please visit our website's 'Rates' page or speak with a banker. Would you like me to explain more about a particular account type?"
+                "VeloTrust offers savings at up to 2.5% APY, CDs from 2.5% to 2.5%, and mortgages from 2.5%. Want details on one?",
+                "Current rates: savings up to 2.5% APY, CDs 2.5%-2.5%, mortgages from 2.5%. Check our site for updates. Need specifics?",
+                "We provide competitive rates like 2.5% APY for savings and 2.5% for mortgages. Interested in a particular account's rate?",
+                "Rates vary: savings at 2.5% APY, CDs from 2.5%, mortgages starting at 2.5%. Visit VeloTrust's site for current rates. Want more info?"
             ],
             "response_weights": [
-                1.01,
+                1.0,
                 1.0,
                 1.0,
                 1.0
@@ -432,13 +553,16 @@
                 "Travel money",
                 "Convert currency",
                 "Do you exchange euros",
-                "Foreign exchange services"
+                "Foreign exchange services",
+                "Get foreign cash",
+                "Exchange dollars to pounds",
+                "Currency for travel"
             ],
             "responses": [
-                "We offer foreign currency exchange services at most branch locations. For major currencies, no advance notice is needed. For others, please contact your local branch 3-5 days ahead. Would you like information about our exchange rates?",
-                "You can exchange foreign currency at our branches. We offer competitive rates for major world currencies. For large amounts or uncommon currencies, we recommend calling ahead to ensure availability. Would you like to know which currencies we typically have available?",
-                "Our foreign currency services include buying and selling major world currencies. Exchange rates are updated daily. For the best rates on larger amounts, we recommend ordering in advance through your local branch or online banking.",
-                "We provide foreign currency exchange at competitive rates. Services are available at most branches, though we recommend calling ahead to check availability for your specific currency needs. Would you like to know about foreign transaction fees on our cards for international travel?"
+                "VeloTrust offers currency exchange at branches. Call ahead for uncommon currencies. Want current rates or branch info?",
+                "Exchange major currencies at VeloTrust branches. Rates update daily. Order in advance for less common ones. Need details?",
+                "For foreign currency, visit a VeloTrust branch or order via online banking. Check rates on our site. Want to know available currencies?",
+                "We provide currency exchange at competitive rates. Contact your VeloTrust branch for availability. Need travel card info too?"
             ],
             "response_weights": [
                 1.0,
@@ -448,13 +572,69 @@
             ]
         },
         {
-            "tag": "fallback",
-            "patterns": [],
+            "tag": "overdraft_inquiry",
+            "patterns": [
+                "What is an overdraft",
+                "Overdraft fees",
+                "How do I avoid overdraft charges",
+                "Overdraft protection",
+                "Why was I charged an overdraft fee",
+                "Overdraft limit",
+                "Explain overdraft"
+            ],
             "responses": [
-                "I'm not sure I understand. Could you rephrase your question or concern?",
-                "I'm sorry, I didn't quite catch that. Could you please provide more details about your banking query?",
-                "I'm still learning and didn't understand your request. Could you try asking in a different way or provide more information?",
-                "I'm afraid I don't have enough information to help with that. Could you provide more details about your banking question?"
+                "An overdraft occurs when you spend more than your account balance. VeloTrust charges a LKR 3500 fee unless covered by overdraft protection. Want to set up protection?",
+                "VeloTrust's overdraft fees are LKR 3500 per transaction. Link a savings account for protection to avoid fees. Need more details?",
+                "Overdrafts happen when your balance goes below zero. Fees are LKR 3500 unless protected. Check VeloTrust's app to monitor funds. Want help?",
+                "Avoid overdraft fees (LKR 3500) with VeloTrust's protection by linking accounts. Want to learn how to enroll or monitor your balance?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "account_closure",
+            "patterns": [
+                "Close my account",
+                "How do I close my bank account",
+                "Cancel my account",
+                "Shut down my account",
+                "End my account",
+                "Close checking account",
+                "Close savings account"
+            ],
+            "responses": [
+                "To close your checking or savings account, visit a VeloTrust branch or call +94 11 220 4444. Ensure your balance is zero. Need steps?",
+                "Closing a checking or savings account requires a branch visit or call to +94 11 220 4444. Clear all funds first. Want guidance?",
+                "Contact VeloTrust at +94 11 220 4444 or visit a branch to close your checking or savings account. Need help with the process?",
+                "For account closure, ensure a zero balance and call VeloTrust at +94 11 220 4444 or visit a branch. Want more details?"
+            ],
+            "response_weights": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "tag": "investment_options",
+            "patterns": [
+                "Investment options",
+                "How to invest with the bank",
+                "Savings investment",
+                "What are your investment products",
+                "Investment accounts",
+                "Can I invest in stocks with bank",
+                "Retirement accounts"
+            ],
+            "responses": [
+                "VeloTrust offers CDs, fixed deposits, and treasury bonds for investing. Want details on a specific investment product?",
+                "Explore investment options like fixed deposits with 2.5% returns and treasury bonds. Contact +94 11 220 4444 for more info. Which one interests you?",
+                "Our investments include CDs and fixed deposits starting at 2.5%. Call +94 11 220 4444 to learn more. Need specific details?",
+                "VeloTrust provides secure investments like fixed deposits at 2.5%. Visit our site or call +94 11 220 4444 for current options. Want to explore?"
             ],
             "response_weights": [
                 1.0,
