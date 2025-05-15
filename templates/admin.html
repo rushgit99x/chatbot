@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeloTrust Bank - Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .admin-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .admin-container h1, .admin-container h2 {
+            margin-bottom: 1rem;
+        }
+        .admin-container button {
+            padding: 0.5rem 1rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .admin-container button:hover {
+            background: #0056b3;
+        }
+        .message {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .feedback-section {
+            margin-top: 2rem;
+        }
+        .feedback-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .feedback-table th, .feedback-table td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: left;
+        }
+        .feedback-table th {
+            background: #f4f4f4;
+        }
+        .feedback-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .add-feedback-form {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        .add-feedback-form label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+        }
+        .add-feedback-form input, .add-feedback-form select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+    <script>
+        function retrainModel() {
+            document.getElementById("retrain-button").disabled = true;
+            document.getElementById("retrain-button").innerText = "Retraining...";
+            let messageDiv = document.getElementById("message");
+            messageDiv.style.display = "none"; // Hide previous message
+            fetch("/admin/retrain", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                messageDiv.innerText = data.message;
+                messageDiv.className = "message " + (data.success ? "success" : "error");
+                messageDiv.style.display = "block";
+                document.getElementById("retrain-button").disabled = false;
+                document.getElementById("retrain-button").innerText = "Retrain Model";
+                if (data.success) {
+                    setTimeout(() => {
+                        location.reload(); // Reload page after successful retraining
+                    }, 1000); // Delay to show success message
+                }
+            })
+            .catch(error => {
+                messageDiv.innerText = "Error during retraining: " + error;
+                messageDiv.className = "message error";
+                messageDiv.style.display = "block";
+                document.getElementById("retrain-button").disabled = false;
+                document.getElementById("retrain-button").innerText = "Retrain Model";
+            });
+        }
+
+        function addFeedback(event) {
+            event.preventDefault();
+            let userMessage = document.getElementById("user-message").value;
+            let botResponse = document.getElementById("bot-response").value;
+            let tag = document.getElementById("tag").value;
+            let feedbackScore = document.getElementById("feedback-score").value;
+            let messageDiv = document.getElementById("message");
+
+            fetch("/admin/add_feedback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    user_message: userMessage,
+                    bot_response: botResponse,
+                    tag: tag,
+                    feedback_score: parseInt(feedbackScore)
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                messageDiv.innerText = data.message;
+                messageDiv.className = "message " + (data.success ? "success" : "error");
+                messageDiv.style.display = "block";
+                if (data.success) {
+                    document.getElementById("add-feedback-form").reset();
+                    setTimeout(() => {
+                        location.reload(); // Reload to update feedback table
+                    }, 1000);
+                }
+            })
+            .catch(error => {
+                messageDiv.innerText = "Error adding feedback: " + error;
+                messageDiv.className = "message error";
+                messageDiv.style.display = "block";
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+        <p>Use the button below to manually retrain the chatbot model using feedback from user_feedback.json.</p>
+        <button id="retrain-button" onclick="retrainModel()">Retrain Model</button>
+        <div id="message" class="message" style="display: none;"></div>
+
+        <div class="feedback-section">
+            <h2>User Feedback</h2>
+            {% if feedback_data.feedback %}
+            <table class="feedback-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Timestamp</th>
+                        <th>User Message</th>
+                        <th>Bot Response</th>
+                        <th>Tag</th>
+                        <th>Feedback Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in feedback_data.feedback %}
+                    <tr>
+                        <td>{{ entry.user_id[:8] }}...</td>
+                        <td>{{ entry.timestamp }}</td>
+                        <td>{{ entry.user_message }}</td>
+                        <td>{{ entry.bot_response }}</td>
+                        <td>{{ entry.tag }}</td>
+                        <td>{{ entry.feedback_score }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No feedback available.</p>
+            {% endif %}
+        </div>
+
+        <div class="add-feedback-form">
+            <h2>Add New Feedback</h2>
+            <form id="add-feedback-form" onsubmit="addFeedback(event)">
+                <label for="user-message">User Message:</label>
+                <input type="text" id="user-message" name="user_message" required>
+                
+                <label for="bot-response">Bot Response:</label>
+                <input type="text" id="bot-response" name="bot_response" required>
+                
+                <label for="tag">Tag:</label>
+                <input type="text" id="tag" name="tag" required>
+                
+                <label for="feedback-score">Feedback Score:</label>
+                <select id="feedback-score" name="feedback_score" required>
+                    <option value="1">Positive (1)</option>
+                    <option value="0">Neutral (0)</option>
+                    <option value="-1">Negative (-1)</option>
+                </select>
+                
+                <button type="submit">Add Feedback</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

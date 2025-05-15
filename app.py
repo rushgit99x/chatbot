@@ -3,10 +3,12 @@ import uuid
 import json
 import pickle
 import numpy as np
+import datetime
 import tensorflow as tf
 from nltk.stem import WordNetLemmatizer
 import nltk
 from feedback_collector import FeedbackCollector
+from model_retrainer import ModelRetrainer
 
 # Make sure NLTK data is downloaded
 nltk.download('punkt')
@@ -151,6 +153,9 @@ class RLChatbot:
 app = Flask(__name__)
 app.secret_key = "chatbot_reinforcement_learning_key"
 
+# Simple admin password (replace with proper authentication in production)
+ADMIN_PASSWORD = "admin123"  # Change this to a secure password
+
 # Check if required files exist, if not prompt user to run training
 def check_required_files():
     import os
@@ -243,6 +248,82 @@ def status():
         "missing_files": missing_files,
         "chatbot_initialized": chatbot_ready
     })
+
+@app.route("/admin", methods=["GET", "POST"])
+def admin():
+    # Load feedback data for display
+    try:
+        with open('user_feedback.json', 'r') as f:
+            feedback_data = json.load(f)
+    except Exception as e:
+        feedback_data = {"feedback": []}
+        print(f"Error loading feedback data: {e}")
+
+    if request.method == "POST":
+        password = request.form.get("password")
+        if password == ADMIN_PASSWORD:
+            session['admin_authenticated'] = True
+            return render_template("admin.html", feedback_data=feedback_data)
+        else:
+            return render_template("admin_login.html", error="Invalid password")
+    else:
+        if session.get('admin_authenticated'):
+            return render_template("admin.html", feedback_data=feedback_data)
+        return render_template("admin_login.html")
+
+@app.route("/admin/retrain", methods=["POST"])
+def admin_retrain():
+    if not session.get('admin_authenticated'):
+        return jsonify({"success": False, "message": "Unauthorized access"}), 401
+    
+    try:
+        retrainer = ModelRetrainer()
+        # Force retraining by ignoring minimum feedback count
+        modified = retrainer.update_intents_from_feedback(ignore_min_feedback=True)
+        if modified:
+            retrainer.rebuild_model()
+            return jsonify({"success": True, "message": "Model retraining completed"})
+        else:
+            return jsonify({"success": False, "message": "No new feedback to process"})
+    except Exception as e:
+        return jsonify({"success": False, "message": f"Error during retraining: {str(e)}"})
+
+@app.route("/admin/add_feedback", methods=["POST"])
+def add_feedback():
+    if not session.get('admin_authenticated'):
+        return jsonify({"success": False, "message": "Unauthorized access"}), 401
+    
+    try:
+        data = request.get_json()
+        user_message = data.get("user_message")
+        bot_response = data.get("bot_response")
+        tag = data.get("tag")
+        feedback_score = data.get("feedback_score")
+
+        # Validate input
+        if not all([user_message, bot_response, tag, feedback_score is not None]):
+            return jsonify({"success": False, "message": "All fields are required"})
+
+        # Generate unique user ID and timestamp
+        user_id = str(uuid.uuid4())
+        timestamp = datetime.datetime.now().isoformat()
+
+        # Save feedback using FeedbackCollector
+        feedback_collector = FeedbackCollector()
+        success = feedback_collector.save_feedback(
+            user_id=user_id,
+            user_message=user_message,
+            bot_response=bot_response,
+            tag=tag,
+            feedback_score=feedback_score
+        )
+
+        if success:
+            return jsonify({"success": True, "message": "Feedback added successfully"})
+        else:
+            return jsonify({"success": False, "message": "Failed to save feedback"})
+    except Exception as e:
+        return jsonify({"success": False, "message": f"Error adding feedback: {str(e)}"})
 
 if __name__ == "__main__":
     # Check if required files exist

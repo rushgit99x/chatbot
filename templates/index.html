@@ -19,6 +19,7 @@
                     </label>
                     <span class="mode-icon">🌙</span>
                 </div>
+                <button id="admin-login-button" onclick="window.location.href='/admin'">Admin Login</button>
                 <button id="end-chat-button" onclick="showEndChatModal()">End Chat</button>
             </div>
         </div>
@@ -272,7 +273,7 @@
                         </div>
                         <div class="bot-message" id="${messageId}">
                             <strong>Bot:</strong> Hello! I'm an AI assistant with reinforcement learning capabilities. 
-                            How can I help you today? Feel free to give me feedback so I can learn and improve!
+                            How can I help you today? Feel free to give me feedback so I can improve!
                             <div class="feedback-buttons">
                                 <button class="feedback-button" onclick="provideFeedback('${messageId}', 1)">👍</button>
                                 <button class="feedback-button" onclick="provideFeedback('${messageId}', 0)">😐</button>
@@ -309,7 +310,7 @@
                     <div class="message-container">
                         <div class="bot-message" id="${messageId}">
                             <strong>Bot:</strong> Hello! I'm an AI assistant with reinforcement learning capabilities. 
-                            How can I help you today? Feel free to give me feedback so I can learn and improve!
+                            How can I help you today? Feel free to give me feedback so I can improve!
                             <div class="feedback-buttons">
                                 <button class="feedback-button" onclick="provideFeedback('${messageId}', 1)">👍</button>
                                 <button class="feedback-button" onclick="provideFeedback('${messageId}', 0)">😐</button>

@@ -86,3 +86,18 @@ class FeedbackCollector:
         except Exception as e:
             print(f"Error marking feedback as processed: {e}")
             return False
+    
+    def clear_feedback(self):
+        """Clear all feedback entries, keeping the file structure"""
+        try:
+            initial_data = {
+                "feedback": [],
+                "last_processed_date": datetime.datetime.now().isoformat()
+            }
+            with open(self.feedback_file, 'w') as f:
+                json.dump(initial_data, f, indent=4)
+            print(f"Cleared feedback file: {self.feedback_file}")
+            return True
+        except Exception as e:
+            print(f"Error clearing feedback file: {e}")
+            return False

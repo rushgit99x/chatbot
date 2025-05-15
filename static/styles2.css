@@ -137,6 +137,16 @@ input:checked + .slider:before {
     font-size: 14px;
     transition: background-color 0.3s;
 }
+#admin-login-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
 
 #end-chat-button:hover {
     background-color: var(--danger-hover);

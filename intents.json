@@ -29,8 +29,8 @@
             "response_weights": [
                 1.01,
                 1.0,
-                1.0,
-                1.0
+                1.01,
+                1.01
             ]
         },
         {
@@ -49,7 +49,8 @@
                 "I'm done",
                 "Catch you later",
                 "Thanks, bye",
-                "Cheers"
+                "Cheers",
+                "ok thnx"
             ],
             "responses": [
                 "Thanks for chatting with VeloTrust. Have a great day!",
@@ -58,10 +59,10 @@
                 "Take care! We're here whenever you need us."
             ],
             "response_weights": [
+                1.01,
                 1.0,
-                1.0,
-                1.0,
-                1.01
+                0.91,
+                1.12
             ]
         },
         {
@@ -120,7 +121,8 @@
                 "Balance for my account",
                 "How much money is left in my account",
                 "Show balance for checking",
-                "Savings balance check"
+                "Savings balance check",
+                "Check my balance"
             ],
             "responses": [
                 "To view your checking or savings balance, please log in to the VeloTrust mobile app or online banking portal for secure access.",
@@ -132,7 +134,7 @@
                 1.0,
                 1.0,
                 1.0,
-                1.0
+                1.11
             ]
         },
         {
@@ -273,7 +275,7 @@
             "response_weights": [
                 1.01,
                 1.0,
-                1.0,
+                1.01,
                 1.0
             ]
         },
@@ -447,7 +449,8 @@
                 "What time does the bank close",
                 "Closest ATM",
                 "Branch near my location",
-                "Bank opening hours"
+                "Bank opening hours",
+                "i need to find nearest bank branch"
             ],
             "responses": [
                 "Find branches and ATMs on VeloTrust's website or app under 'Locations.' Most branches open 9AM-3PM. Need help using the locator?",
@@ -456,10 +459,10 @@
                 "Locate the nearest VeloTrust branch or ATM via our app's 'Locations' tool. Hours vary but often 9AM-3PM. Want help finding one?"
             ],
             "response_weights": [
+                1.01,
                 1.0,
                 1.0,
-                1.0,
-                1.0
+                1.11
             ]
         },
         {
@@ -538,7 +541,7 @@
                 "Rates vary: savings at 2.5% APY, CDs from 2.5%, mortgages starting at 2.5%. Visit VeloTrust's site for current rates. Want more info?"
             ],
             "response_weights": [
-                1.0,
+                1.01,
                 1.0,
                 1.0,
                 1.0
@@ -615,7 +618,7 @@
             "response_weights": [
                 1.0,
                 1.0,
-                1.0,
+                1.01,
                 1.0
             ]
         },
@@ -638,9 +641,9 @@
             ],
             "response_weights": [
                 1.0,
+                1.11,
                 1.0,
-                1.0,
-                1.0
+                1.01
             ]
         }
     ]
