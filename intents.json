@@ -27,8 +27,8 @@
                 "Hey! I'm here to answer your banking questions. What's up?"
             ],
             "response_weights": [
-                1.01,
                 1.0,
+                1.02,
                 1.01,
                 1.01
             ]
@@ -50,7 +50,8 @@
                 "Catch you later",
                 "Thanks, bye",
                 "Cheers",
-                "ok thnx"
+                "ok thnx",
+                "thnx"
             ],
             "responses": [
                 "Thanks for chatting with VeloTrust. Have a great day!",
@@ -62,7 +63,7 @@
                 1.01,
                 1.0,
                 0.91,
-                1.12
+                1.1400000000000001
             ]
         },
         {
@@ -532,7 +533,8 @@
                 "Do you offer competitive rates",
                 "Rate for savings account",
                 "CD interest rates",
-                "Mortgage loan rates"
+                "Mortgage loan rates",
+                "i need to knw about these days interest rates?"
             ],
             "responses": [
                 "VeloTrust offers savings at up to 2.5% APY, CDs from 2.5% to 2.5%, and mortgages from 2.5%. Want details on one?",
@@ -541,8 +543,8 @@
                 "Rates vary: savings at 2.5% APY, CDs from 2.5%, mortgages starting at 2.5%. Visit VeloTrust's site for current rates. Want more info?"
             ],
             "response_weights": [
+                1.12,
                 1.01,
-                1.0,
                 1.0,
                 1.0
             ]

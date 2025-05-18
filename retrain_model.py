@@ -5,7 +5,7 @@ import logging
 from datetime import datetime
 
 # Setup logging
-log_file = os.path.join(os.path.dirname(__file__), "retraining.log")
+log_file = os.path.join(os.path.dirname(__file__), "retraining.log") # Log file path
 logging.basicConfig(
     filename=log_file,
     level=logging.INFO,

@@ -1,9 +1,9 @@
 # model_training.py
-import random
-import json
-import pickle
-import numpy as np
-import tensorflow as tf
+import random # for shuffling data
+import json # for reading intents file
+import pickle # allows you to save and retrieve complex data structures easily
+import numpy as np # for numerical operations
+import tensorflow as tf # for building the model
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM, Reshape
 from tensorflow.keras.callbacks import ModelCheckpoint
@@ -11,11 +11,11 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 
 # Download NLTK data
-nltk.download('punkt')
-nltk.download('wordnet')
+nltk.download('punkt') # Used for tokenizing text into words or sentences
+nltk.download('wordnet') # Used for lemmatizing words
 
 class ChatbotTrainer:
-    def __init__(self, intents_file='intents.json'):
+    def __init__(self, intents_file='intents.json'): 
         self.lemmatizer = WordNetLemmatizer()
         self.intents = json.loads(open(intents_file).read())
         self.words = []
@@ -40,12 +40,12 @@ class ChatbotTrainer:
         self.classes = sorted(set(self.classes))
         
         # Save processed data
-        pickle.dump(self.words, open('words.pkl', 'wb'))
-        pickle.dump(self.classes, open('classes.pkl', 'wb'))
+        pickle.dump(self.words, open('words.pkl', 'wb'))     # Save words
+        pickle.dump(self.classes, open('classes.pkl', 'wb')) # Save classes
         
         return self.words, self.classes, self.documents
     
-    def prepare_training_data(self):
+    def prepare_training_data(self): 
         training = []
         output_empty = [0] * len(self.classes)
         
@@ -76,16 +76,15 @@ class ChatbotTrainer:
         model = Sequential()
         
         # Input layer
-        model.add(Dense(128, input_shape=(input_shape,), activation='relu'))
-        model.add(Dropout(0.5))
+        model.add(Dense(128, input_shape=(input_shape,), activation='relu')) # First layer
+        model.add(Dropout(0.5)) # Dropout layer to prevent overfitting
         
         # Second dense layer
-        model.add(Dense(64, activation='relu'))
-        model.add(Dropout(0.3))
+        model.add(Dense(64, activation='relu')) # Second layer
+        model.add(Dropout(0.3)) # Dropout layer
         
         # Output layer
-        model.add(Dense(len(self.classes), activation='softmax'))
-        
+        model.add(Dense(len(self.classes), activation='softmax')) # Output layer with softmax activation
         return model
     
     def build_lstm_model(self, input_shape):
@@ -95,12 +94,12 @@ class ChatbotTrainer:
         # Reshape input for LSTM (add time dimension)
         model.add(Reshape((1, input_shape), input_shape=(input_shape,)))
         
-        # LSTM layer
+        # LSTM layer(Long Short-Term Memory Layer)
         model.add(LSTM(128, return_sequences=False))
         model.add(Dropout(0.5))
         
         # Dense layer
-        model.add(Dense(64, activation='relu'))
+        model.add(Dense(64, activation='relu')) # Second layer
         model.add(Dropout(0.3))
         
         # Output layer

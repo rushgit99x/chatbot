@@ -1,4 +1,29 @@
 {
-    "feedback": [],
-    "last_processed_date": "2025-05-13T22:06:42.509281"
+    "feedback": [
+        {
+            "user_id": "e29e57ee-68a8-4909-9fd9-eb8033cdbeed",
+            "timestamp": "2025-05-16T09:42:29.317209",
+            "user_message": "hi",
+            "bot_response": "Hi there! I'm your virtual banking assistant. What's on your mind?",
+            "tag": "greeting",
+            "feedback_score": 1
+        },
+        {
+            "user_id": "23dde37a-7121-41f1-bfac-3960c94ecd46",
+            "timestamp": "2025-05-17T16:30:10.146858",
+            "user_message": "hi",
+            "bot_response": "Hi there! I'm your virtual banking assistant. What's on your mind?",
+            "tag": "greeting",
+            "feedback_score": 1
+        },
+        {
+            "user_id": "23dde37a-7121-41f1-bfac-3960c94ecd46",
+            "timestamp": "2025-05-17T16:31:53.155004",
+            "user_message": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "bot_response": "Hello! Welcome to VeloTrust online banking. How can I assist you today?",
+            "tag": "greeting",
+            "feedback_score": -1
+        }
+    ],
+    "last_processed_date": "2025-05-15T23:06:13.439865"
 }
